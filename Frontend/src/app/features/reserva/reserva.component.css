@@ -1,0 +1,30 @@
+.tabla-reservas-container {
+  max-width: 100%;
+  overflow-x: auto;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-reservas {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.tabla-reservas thead {
+  background-color: #f2f2f2;
+}
+
+.tabla-reservas th,
+.tabla-reservas td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla-reservas tr:hover {
+  background-color: #f9f9f9;
+}

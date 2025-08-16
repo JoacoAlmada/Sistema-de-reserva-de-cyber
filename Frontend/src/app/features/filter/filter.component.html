@@ -1,0 +1,42 @@
+<div class="form-container">
+  <h3>Filtrar Reserva</h3>
+  <form #filterForm="ngForm" (ngSubmit)="aplicarFiltros()">
+
+    <div>
+      <label>Cliente</label>
+      <select name="Cliente" [(ngModel)]="filtros.cliente_id">
+        <option value="" selected>Todos</option>
+        @for (cliente of clientes; track $index) {
+          <option value="{{cliente.id}}">{{ cliente.nombreCompleto }}</option>
+        }
+      </select>
+    </div>
+
+    <div>
+      <label>Puesto</label>
+      <select name="Puesto" [(ngModel)]="filtros.puesto_id">
+        <option value="" selected>Todos</option>
+        @for (puesto of puestos; track $index) {
+          <option value="{{puesto.id}}">{{ puesto.nombre }}</option>
+        }
+      </select>
+    </div>
+
+    <div>
+      <label>Videojuego</label>
+      <select name="Videojuego" [(ngModel)]="filtros.videojuego_id">
+        <option value="" selected>Todos</option>
+        @for (juego of juegos; track $index) {
+          <option value="{{juego.id}}">{{ juego.titulo }}</option>
+        }
+      </select>
+    </div>
+
+    <div>
+      <label>Fecha</label>
+      <input type="datetime-local" name="fecha" [(ngModel)]="filtros.fechaHora "  step="1"/>
+    </div>
+
+    <button type="submit">Aplicar Filtros</button>
+  </form>
+</div>

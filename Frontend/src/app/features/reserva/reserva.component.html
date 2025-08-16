@@ -1,0 +1,30 @@
+<div class="tabla-reservas-container">
+  <table class="tabla-reservas">
+    <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Videojuego</th>
+      <th>Puesto</th>
+      <th>Fecha</th>
+      <th>Duración</th>
+      <th>Observaciones</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (reserva of reservas; track $index){
+    <tr >
+      <td>{{ reserva.cliente.nombreCompleto }}</td>
+      <td>{{ reserva.videojuego.titulo }}</td>
+      <td>{{ reserva.puesto.nombre }}</td>
+      <td>{{ reserva.fechaHora }}</td>
+      <td>{{ reserva.duracionMinutos }} min</td>
+      <td>{{ reserva.observaciones }}</td>
+    </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+
+

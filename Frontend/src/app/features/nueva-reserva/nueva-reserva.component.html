@@ -1,0 +1,68 @@
+<div class="form-container">
+  <h2>Nueva Reserva</h2>
+
+  <form #form="ngForm" (ngSubmit)="crearReserva(form)">
+
+    <div>
+      <label>Cliente</label>
+      <select name="Cliente" [(ngModel)]="reserva.cliente_id" required>
+        <option value="" selected>Todos</option>
+        @for (cliente of clientes; track $index) {
+          <option value="{{cliente.id}}">{{ cliente.nombreCompleto }}</option>
+        }
+      </select>
+    </div>
+
+    <div>
+      <label>Puesto</label>
+      <select name="Puesto" [(ngModel)]="reserva.puesto_id" required>
+        <option value="" selected>Todos</option>
+        @for (puesto of puestos; track $index) {
+          <option value="{{puesto.id}}">{{ puesto.nombre }}</option>
+        }
+      </select>
+    </div>
+
+    <div>
+      <label>Videojuego</label>
+      <select name="Videojuego" [(ngModel)]="reserva.videojuego_id" required>
+        <option value="" selected>Todos</option>
+        @for (juego of juegos; track $index) {
+          <option value="{{juego.id}}">{{ juego.titulo }}</option>
+        }
+      </select>
+    </div>
+
+    <div>
+      <label>Fecha</label>
+      <input type="datetime-local" name="fecha" [(ngModel)]="reserva.fechaHora" required />
+    </div>
+
+    <div>
+      <label>Duración (minutos)</label>
+      <select name="duracion" [(ngModel)]="reserva.duracionMinutos" required>
+        <option value="30">30 minutos</option>
+        <option value="60">60 minutos</option>
+        <option value="90">90 minutos</option>
+        <option value="120">120 minutos</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Observaciones</label>
+      <textarea
+        name="observaciones"
+
+        [(ngModel)]="reserva.observaciones"
+        rows="3"
+        placeholder="Escriba observaciones (opcional)">
+      </textarea>
+    </div>
+
+    <div class="button-group">
+      <button type="button" class="cancel-button">Cancelar</button>
+      <button type="submit" class="submit-button" [disabled]="form.invalid">Guardar Reserva</button>
+    </div>
+
+  </form>
+</div>
